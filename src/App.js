@@ -23,13 +23,13 @@ function App() {
     formData.append('pdf', pdfFile);
 
     try {
-      await axios.post('https://certificatbackend.onrender.com/api/upload', formData, {
+      await axios.post(`http://localhost:3001/api/upload`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       setError('');
       alert('Certificat uploadé avec succès');
     } catch (err) {
-      setError('Erreur lors de l\'upload du certificat.');
+      setError('Erreur lors d\'enregistrement du certificat.');
     }
   };
 
@@ -69,8 +69,9 @@ function App() {
           Enregistrer le certificat
         </button>
       </form>
-
+      <div className='error'>
       {error && <p className="text-red-500 mb-4">{error}</p>}
+      </div>
 
     </>
   );
