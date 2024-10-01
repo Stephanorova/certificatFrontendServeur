@@ -23,7 +23,7 @@ function App() {
     formData.append('pdf', pdfFile);
 
     try {
-      await axios.post(`http://localhost:3001/api/upload`, formData, {
+      await axios.post(`https://certificatbackend.onrender.com/api/upload`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' }
       });
       setError('');
